@@ -1,14 +1,22 @@
 {
-    "name": "static-site",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "inquirer": "^6.3.1"
-    }
+  "name": "readme-ready-node",
+  "version": "1.0.0",
+  "description": "Challenge 09 Bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dieterichelizabeth/readme-ready-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dieterichelizabeth/readme-ready-node/issues"
+  },
+  "homepage": "https://github.com/dieterichelizabeth/readme-ready-node#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
   }
+}
