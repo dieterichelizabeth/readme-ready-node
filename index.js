@@ -1,4 +1,5 @@
 const inquirer = require ('inquirer');
+const readmeInputTotal = [];
 
 const readmeInput = () => {
 console.log(`
@@ -98,9 +99,9 @@ return inquirer.prompt([
     },
     {
         // if installation confirmed yes, get installation instructions
-        type: 'input',
+        type: 'editor',
         name: 'installationInstruc',
-        message: 'Please add instructions on how to install your project',
+        message: 'Please add instructions on how to install your project. Pressing enter will place you in VIM INSERT MODE. Please enter your instructions, with steps if applicable.    Please put code blocks on their own line. Once completed, press escape, then :wq- Your input will be logged as recieved. :D',
         when: ({ installation }) => {
           if (installation) {
             return true;
@@ -140,9 +141,9 @@ return inquirer.prompt([
         // if test confirmed yes, get test information
         type: 'input',
         name: 'testInfo',
-        message: 'Please provide testing information.',
-        when: ({ usage }) => {
-          if (usage) {
+        message: 'Please provide testing information for your project.',
+        when: ({ testConfirm }) => {
+          if (testConfirm) {
             return true;
           } else {
             return false;
@@ -160,7 +161,7 @@ return inquirer.prompt([
         // if contributor confirmed yes, get contributor instructions
         type: 'input',
         name: 'contributors',
-        message: 'Please add instructions for contributing to the project.',
+        message: 'Please add instructions for contributing to your project.',
         when: ({ confirmContributors }) => {
           if (confirmContributors) {
             return true;
@@ -178,7 +179,7 @@ return inquirer.prompt([
     },
     {
         // if license confirmed yes, give license choice
-        type: 'checkbox',
+        type: 'list',
         name: 'license',
         message: 'Please select your license.',
         choices: ['MIT', 'Open Software License 3.0', 'Apache license 2.0', 'GNU General Public License v3.0', 'The Unlicense'],
@@ -193,6 +194,8 @@ return inquirer.prompt([
 ])
 }
 
+
+// currently infinite loop:(
 readmeInput()
 .then(additionalInput)
 .then(readmeInput => {
@@ -201,26 +204,6 @@ console.log(`
         now loading...your readme!
 ==============================================
 `);
-    // setting the variable does not work? -> const {name} = promptUser.name;
-    // name of project
-    console.log(readmeInput);
-    // console.log(additionalInput);
-    // // description
-    // console.log(readmeInput.description);
-    // // installation
-    // console.log(readmeInput.installation);
-    // // usage
-    // console.log(readmeInput.usage);
-    // // license
-    // console.log(readmeInput.license);
-    // // contributors
-    // console.log(readmeInput.confirmContributors);
-    // // tests
-    // console.log(readmeInput.testConfirm);
-    // // questions section - username
-    // console.log(readmeInput.username);
-    // // email
-    // console.log(readmeInput.email);
-    // // contact instructions
-    // console.log(readmeInput.contactInstructions);
+console.log(readmeInput);
+console.log(additionalInput);
 });
