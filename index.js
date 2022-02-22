@@ -1,7 +1,7 @@
 const inquirer = require ('inquirer');
-const readmeInputTotal = [];
+const fs = require ('fs');
 
-const readmeInput = () => {
+const promptRequired = () => {
 console.log(`
 ==============================================
 Welcome!! Lets make your readme simple/quick!
@@ -82,13 +82,17 @@ Welcome!! Lets make your readme simple/quick!
     ])
 }
 
-const additionalInput = () => {
+const promptOptional = readmeData => {
     console.log(`
 ==============================================
                 Thank you! 
     I just need a few more pieces of info-
 ==============================================
 `);
+// Array to hold optional entries
+// readmeData.optional = [];
+// readmeData.push(readmeData.optional);
+
 return inquirer.prompt([
     {
         // get instalation preference
@@ -191,19 +195,26 @@ return inquirer.prompt([
             }
           }
     }
-])
-}
+  ])
+  // .then(readmeData => {
+  //   readmeData.optional.push(readmeData);
+  //   if (readmeData.optional) {
+  //     return additionalInput(readmeData);
+  //   } else {
+  //     return readmeData;
+  //   }
+  // });
+};
 
 
-// currently infinite loop:(
-readmeInput()
-.then(additionalInput)
-.then(readmeInput => {
+promptRequired()
+.then(answers => console.log(answers))
+.then(promptOptional)
+.then(optionalAnswers => {
 console.log(`
 ==============================================
         now loading...your readme!
 ==============================================
 `);
-console.log(readmeInput);
-console.log(additionalInput);
+console.log(optionalAnswers);
 });
