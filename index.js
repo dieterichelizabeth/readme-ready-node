@@ -89,11 +89,16 @@ const promptOptional = (readmeData) => {
   readmeData.optInput = [];
 
 console.log(`
-=====================================================
-                  Thank you! 
-    I just need a few more pieces of info-
-  This next section is optional- mark if applicable
-=====================================================
+====================================================================
+                        Thank you! 
+            I just need a few more pieces of info-
+      This next section is optional- mark 'y' if applicable
+Pressing enter on "VIM" promts will place you in VIM INSERT MODE. 
+    Please enter your instructions, with steps if applicable. 
+  Please put code blocks on their own line, wrapped in back ticks. 
+            Once completed, press escape, then :wq 
+          Your input will be logged as recieved. :D
+====================================================================
 `);
   
   return inquirer.prompt([
@@ -108,7 +113,7 @@ console.log(`
           // if installation confirmed yes, get installation instructions
           type: 'editor',
           name: 'installationInstruc',
-          message: 'Please add instructions on how to install your project. Pressing enter will place you in VIM INSERT MODE. Please enter your instructions, with steps if applicable. Please put code blocks on their own line. Once completed, press escape, then :wq- Your input will be logged as recieved. :D',
+          message: 'Please add instructions on how to install your project. (VIM)',
           when: ({ installation }) => {
             if (installation) {
               return true;
@@ -126,9 +131,9 @@ console.log(`
       },
       {
           // if usage confirmed yes, get use description
-          type: 'input',
+          type: 'editor',
           name: 'usageDesc',
-          message: 'Please describe the usage of this project.',
+          message: 'Please describe the usage of this project. (VIM)',
           when: ({ usage }) => {
             if (usage) {
               return true;
@@ -146,9 +151,9 @@ console.log(`
       },
       {
           // if test confirmed yes, get test information
-          type: 'input',
+          type: 'editor',
           name: 'testInfo',
-          message: 'Please provide testing information for your project.',
+          message: 'Please provide testing information for your project. (VIM)',
           when: ({ testConfirm }) => {
             if (testConfirm) {
               return true;
@@ -166,9 +171,9 @@ console.log(`
       },
       {
           // if contributor confirmed yes, get contributor instructions
-          type: 'input',
+          type: 'editor',
           name: 'contributors',
-          message: 'Please add instructions for contributing to your project.',
+          message: 'Please add instructions for contributing to your project. (VIM)',
           when: ({ confirmContributors }) => {
             if (confirmContributors) {
               return true;
@@ -216,10 +221,14 @@ promptRequired()
         now loading...your readme!
 ==============================================
 `);
-  console.log(readmeData);
+  // console.log(readmeData);
   const readMe = generateMarkdown(readmeData);
     fs.writeFile('./product/readme.md', readMe, err => {
       if (err) throw new Error(err);
-      console.log('Done!');
+      console.log(`
+=====================================================
+  readme.md complete!...check the 'product' folder
+=====================================================
+      `);
     });
 });
