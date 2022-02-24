@@ -218,7 +218,7 @@ promptRequired()
 `);
   console.log(readmeData);
   const readMe = generateMarkdown(readmeData);
-    fs.writeFile('./product.readme.md', readMe, err => {
+    fs.writeFile('./product/readme.md', readMe, err => {
       if (err) throw new Error(err);
       console.log('Done!');
     });
