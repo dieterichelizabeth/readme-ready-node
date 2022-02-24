@@ -1,5 +1,6 @@
 const inquirer = require ('inquirer');
 const fs = require ('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 const promptRequired = () => {
   console.log(`
@@ -216,4 +217,9 @@ promptRequired()
 ==============================================
 `);
   console.log(readmeData);
+  const readMe = generateMarkdown(readmeData);
+    fs.writeFile('./product.readme.md', readMe, err => {
+      if (err) throw new Error(err);
+      console.log('Done!');
+    });
 });
