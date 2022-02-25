@@ -1,13 +1,13 @@
 // create Table of contents section (ADD THE FOR LOOP TO GENERATE MARKDOWN)
-// const generateTableofContents = optInput => {
-//     let newArray = optInput[0];
-//     const getTable = newArray.filter(function(complete) {
-//         if (!complete) {
-//           return false;
-//         }
-//     });
-//     console.log(getTable);
-// };
+const generateTableofContents = optInput => {
+    let newArray = optInput[0];
+    const getTable = newArray.filter(function(complete) {
+        if (!complete) {
+          return false;
+        }
+    });
+    console.log(getTable);
+};
 
 // create the installation section
 const generateInstallation = instructions => {
