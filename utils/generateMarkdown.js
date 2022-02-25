@@ -1,69 +1,85 @@
-// create Table of contents section (ADD THE FOR LOOP TO GENERATE MARKDOWN)
+/// create Table of contents section (ADD THE FOR LOOP TO GENERATE MARKDOWN)
 const generateTableofContents = optInput => {
-    let newArray = optInput[0];
-    const getTable = newArray.filter(function(complete) {
-        if (!complete) {
-          return false;
+    const { Installation, Usage, Testing, Contributing, License } = optInput[0];
+    if (!Installation, !Usage, !Testing, !Contributing, !License) {
+        return '';
+    } else {
+        console.log(`nice`)
+        return `
+## Table of Contents
+${generateSections(optInput)}
+`
         }
-    });
-    console.log(getTable);
 };
 
+const generateSections = optInput => {
+// destructure optional info by section
+const optSections= optInput[0];
+// convert object to array
+var optArray = Object.entries(optSections);
+// check to see which optional entries were included (if any)
+optArray.filter(([key, value]) => {
+if (typeof value == "string"){
+   return (`* [${key}](#${key})`)
+} 
+});
+}
+
 // create the installation section
-const generateInstallation = instructions => {
-if (!instructions) {
+const generateInstallation = Installation => {
+if (!Installation) {
     return '';
 } else {
 return `
 ## Installation
-${instructions}
+${Installation}
 `
     };
 };
 
 // create usage section
-const generateUsage = usage => {
-if (!usage) {
+const generateUsage = Usage => {
+if (!Usage) {
     return '';
 } else {
 return `
 ## Usage
-${usage}
+${Usage}
 `
     };
 };
 
 // create Test section
-const generateTest = test => {
-if (!test) {
+const generateTest = Testing => {
+if (!Testing) {
     return '';
 } else {
 return `
-## Tests
-${test}
+## Testing
+${Testing}
 `
     };
 };
   
 // create Contributing section
-const generateContributing = contribute => {
-if (!contribute) {
+const generateContributing = Contributing => {
+if (!Contributing) {
     return '';
 } else {
 return `
 ## Contributing
-${contribute}
+${Contributing}
 `
     };
 };
 
 // Returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {
-    if (!license) {
+function renderLicenseBadge(License) {
+    if (!License) {
         return``
     } else {
-    let badgelicence = license.split(' ');
+    let badgelicence = License.split(' ');
     let licenseRequest = badgelicence[0];
 return `
 ![Github license](https://img.shields.io/badge/${licenseRequest}-license-orange)
@@ -73,14 +89,14 @@ return `
 
 // Returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license, project) {
-    if (!license) {
+function renderLicenseSection(License, project) {
+    if (!License) {
         return '';
     } else {
     // get the Username
     let copyname = project.username;
     // Get the name of the license
-    var newLicense = license.split(' ');
+    var newLicense = License.split(' ');
         // remove first two values of array
         newLicense.shift();
         newLicense.shift();
@@ -103,19 +119,20 @@ function generateMarkdown(data) {
     const { optInput, ...project } = data;
 
     // destructure optional info by section
-    const { installationInstruc, usageDesc, testInfo, contributors, license } = optInput[0];
+    const { Installation, Usage, Testing, Contributing, License } = optInput[0];
 
 return `
-${renderLicenseBadge(license)}
+${renderLicenseBadge(License)}
 # ${project.projectName}
  
 ${project.description}
 
-${generateInstallation(installationInstruc)} 
-${generateUsage(usageDesc)}
-${generateTest(testInfo)}
-${generateContributing(contributors)}
-${renderLicenseSection(license, project)}
+${generateTableofContents(optInput)}
+${generateInstallation(Installation)} 
+${generateUsage(Usage)}
+${generateTest(Testing)}
+${generateContributing(Contributing)}
+${renderLicenseSection(License, project)}
 
 ## Questions
 ${project.contactInstructions}

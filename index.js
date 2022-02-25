@@ -106,17 +106,17 @@ Pressing enter on "VIM" promts will place you in VIM INSERT MODE.
       {
           // get instalation preference
           type: 'confirm',
-          name: 'installation',
+          name: 'installationConfirm',
           message: 'Does your project require installation?',
           default: false,
       },
       {
           // if installation confirmed yes, get installation instructions
           type: 'editor',
-          name: 'installationInstruc',
+          name: 'Installation',
           message: 'Please add instructions on how to install your project. (VIM)',
-          when: ({ installation }) => {
-            if (installation) {
+          when: ({ installationConfirm }) => {
+            if (installationConfirm) {
               return true;
             } else {
               return false;
@@ -126,17 +126,17 @@ Pressing enter on "VIM" promts will place you in VIM INSERT MODE.
       {
           // get usage preference 
           type: 'confirm',
-          name: 'usage',
+          name: 'usageConfirm',
           message: 'Would you like to include a usage description?',
           default: false,
       },
       {
           // if usage confirmed yes, get use description
           type: 'editor',
-          name: 'usageDesc',
+          name: 'Usage',
           message: 'Please describe the usage of this project. (VIM)',
-          when: ({ usage }) => {
-            if (usage) {
+          when: ({ usageConfirm }) => {
+            if (usageConfirm) {
               return true;
             } else {
               return false;
@@ -153,7 +153,7 @@ Pressing enter on "VIM" promts will place you in VIM INSERT MODE.
       {
           // if test confirmed yes, get test information
           type: 'editor',
-          name: 'testInfo',
+          name: 'Testing',
           message: 'Please provide testing information for your project. (VIM)',
           when: ({ testConfirm }) => {
             if (testConfirm) {
@@ -173,7 +173,7 @@ Pressing enter on "VIM" promts will place you in VIM INSERT MODE.
       {
           // if contributor confirmed yes, get contributor instructions
           type: 'editor',
-          name: 'contributors',
+          name: 'Contributing',
           message: 'Please add instructions for contributing to your project. (VIM)',
           when: ({ confirmContributors }) => {
             if (confirmContributors) {
@@ -193,7 +193,7 @@ Pressing enter on "VIM" promts will place you in VIM INSERT MODE.
       {
           // if license confirmed yes, give license choice
           type: 'list',
-          name: 'license',
+          name: 'License',
           message: 'Please select your license.',
           choices: ['mit - MIT', 'osl3.0 - Open Software License 3.0', 'apache2.0 - Apache license 2.0', 'gpl3.0 - GNU General Public License v3.0', 'unlicense - The Unlicense'],
           when: ({ licenseConfirm }) => {
