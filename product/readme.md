@@ -1,16 +1,7 @@
 
-# reame-generator
+# weathering
  
-This project generates readmes!
-
-
-# Installation
-To install this project is simple and easy! 
-Step 1: git clone the project
-``` git clone repo ```
-Step 2: install the npm
-npm i
-Step 3: enjoy!
+generates weather
 
 
 
@@ -21,11 +12,18 @@ Step 3: enjoy!
 
 
 
-# Licensing
-GNU General Public License v3.0
+    ## License & copywrite
+    
+![Github license](https://img.shields.io/badge/Apache license 2.0-license-orange)
 
 
-# Questions
-If you have any questions, please feel free to email me!
+    © lizgitit
+
+    Licensed under the Apache license 2.0 License.
+    
+
+## Questions
+please email me
+
 lizgitit
 lizgitit@gmail.com    
