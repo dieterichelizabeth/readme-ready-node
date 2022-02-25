@@ -94,7 +94,8 @@ console.log(`
             I just need a few more pieces of info-
       This next section is optional- mark 'y' if applicable
 Pressing enter on "VIM" promts will place you in VIM INSERT MODE. 
-    Please enter your instructions, with steps if applicable. 
+    Please enter your instructions, with steps if applicable.
+    For seperated lines on the readme, press enter twice 
   Please put code blocks on their own line, wrapped in back ticks. 
             Once completed, press escape, then :wq 
           Your input will be logged as recieved. :D

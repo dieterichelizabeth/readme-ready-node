@@ -1,14 +1,13 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-// function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-// function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-// function renderLicenseSection(license) {}
+// create Table of contents section (ADD THE FOR LOOP TO GENERATE MARKDOWN)
+// const generateTableofContents = optInput => {
+//     let newArray = optInput[0];
+//     const getTable = newArray.filter(function(complete) {
+//         if (!complete) {
+//           return false;
+//         }
+//     });
+//     console.log(getTable);
+// };
 
 // create the installation section
 const generateInstallation = instructions => {
@@ -16,7 +15,7 @@ if (!instructions) {
     return '';
 } else {
 return `
-# Installation
+## Installation
 ${instructions}
 `
     };
@@ -28,7 +27,7 @@ if (!usage) {
     return '';
 } else {
 return `
-# Usage
+## Usage
 ${usage}
 `
     };
@@ -40,7 +39,7 @@ if (!test) {
     return '';
 } else {
 return `
-# Tests
+## Tests
 ${test}
 `
     };
@@ -52,23 +51,37 @@ if (!contribute) {
     return '';
 } else {
 return `
-# Contributing
+## Contributing
 ${contribute}
 `
     };
 };
 
 // create License section
-const generateLicense = license => {
-if (!license) {
-    return '';
-} else {
-return `
-# Licensing
-${license}
-`
-    };
-};
+
+// TODO: Create a function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+function renderLicenseBadge(license) {}
+
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
+function renderLicenseLink(license) {}
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(license, project) {
+    let copyname = project.username;
+    if (!license) {
+        return '';
+    } else {
+    return `
+    ## License & copywrite
+    © ${copyname} 
+    
+    Licensed under the ${license} License.
+    `
+        };
+}
       
 
 // TODO: Create a function to generate markdown for README
@@ -93,10 +106,11 @@ ${generateTest(testInfo)}
 
 ${generateContributing(contributors)}
 
-${generateLicense(license)}
+${renderLicenseSection(license, project)}
 
-# Questions
+## Questions
 ${project.contactInstructions}
+
 ${project.username}
 ${project.email}    
 `;
