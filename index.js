@@ -195,7 +195,7 @@ Pressing enter on "VIM" promts will place you in VIM INSERT MODE.
           type: 'list',
           name: 'license',
           message: 'Please select your license.',
-          choices: ['MIT', 'Open Software License 3.0', 'Apache license 2.0', 'GNU General Public License v3.0', 'The Unlicense'],
+          choices: ['mit (MIT)', 'osl3.0 (Open Software License 3.0)', 'apache2.0 (Apache license 2.0)', 'gpl3.0 (GNU General Public License v3.0)', 'unlicense (The Unlicense)'],
           when: ({ licenseConfirm }) => {
               if (licenseConfirm) {
                 return true;

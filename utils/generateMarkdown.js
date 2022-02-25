@@ -62,8 +62,10 @@ ${contribute}
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
+    let badgelicence = license.split(' ');
+    let licenseRequest = badgelicence[0];
 return `
-![Github license](https://img.shields.io/badge/${license}-license-orange)
+![Github license](https://img.shields.io/badge/${licenseRequest}-license-orange)
 `
 }
 
