@@ -1,4 +1,4 @@
-/// create Table of contents section (ADD THE FOR LOOP TO GENERATE MARKDOWN)
+// create Table of contents section (ADD THE FOR LOOP TO GENERATE MARKDOWN)
 const generateTableofContents = optInput => {
     const { Installation, Usage, Testing, Contributing, License } = optInput[0];
     if (!Installation, !Usage, !Testing, !Contributing, !License) {
@@ -17,10 +17,11 @@ const generateSections = optInput => {
 const optSections= optInput[0];
 // convert object to array
 var optArray = Object.entries(optSections);
-// check to see which optional entries were included (if any)
+// check to see which optional entries were included (if any) by if there is a string
 optArray.filter(([key, value]) => {
 if (typeof value == "string"){
-   return (`* [${key}](#${key})`)
+   // return the key value of the string (ex. License)
+   return console.log(`* [${key}](#${key})`)
 } 
 });
 }
