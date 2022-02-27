@@ -4,7 +4,6 @@ const generateTableofContents = optInput => {
     if (!Installation, !Usage, !Testing, !Contributing, !License) {
         return '';
     } else {
-        console.log(`nice`)
         return `
 ## Table of Contents
 * [Installation](#Installation)
@@ -109,7 +108,7 @@ function renderLicenseSection(License, project) {
     var licenseName = newLicense.join(' ').toString();
 
     return `
-## License & copywrite
+## License
 © ${copyname}
 
 Licensed under the ${licenseName} License.
