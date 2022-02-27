@@ -7,24 +7,29 @@ const generateTableofContents = optInput => {
         console.log(`nice`)
         return `
 ## Table of Contents
-${generateSections(optInput)}
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Testing](#Testing)
+* [Contributing](#Contributing)
+* [License](#License)
 `
         }
 };
 
-const generateSections = optInput => {
-// destructure optional info by section
-const optSections= optInput[0];
-// convert object to array
-var optArray = Object.entries(optSections);
-// check to see which optional entries were included (if any) by if there is a string
-optArray.filter(([key, value]) => {
-if (typeof value == "string"){
-   // return the key value of the string (ex. License)
-   return console.log(`* [${key}](#${key})`)
-} 
-});
-}
+// const generateSections = optInput => {
+// // destructure optional info by section
+// const optSections= optInput[0];
+// // convert object to array
+// var optArray = Object.entries(optSections);
+// // check to see which optional entries were included (if any) by if there is a string
+// optArray.filter(([key, value]) => {
+// if (typeof value == "string"){
+//     section = JSON.stringify(key);
+//    // return the key value of the string (ex. License)
+//    return section;
+// } 
+// });
+// }
 
 // create the installation section
 const generateInstallation = Installation => {
