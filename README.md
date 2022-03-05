@@ -6,9 +6,7 @@ ReadMe-ready-node is a command-line application that dynamically generates a pro
 
 ## Usage/Example
 
-https://user-images.githubusercontent.com/95142863/155906683-04416c96-28a3-445c-8ca3-71fb41404867.mp4
-
-The video above shows how to use the app, and different features. Follow the installation instructions below to test! Once your readme is generated, it will appear in the "product" folder!
+Follow the installation instructions below to test! Once your readme is generated, it will appear in the "product" folder!
 
 ## Installation
 
